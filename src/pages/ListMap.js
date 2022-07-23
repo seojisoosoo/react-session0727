@@ -10,11 +10,12 @@ const StyledButton = styled.button`
   padding: 1vh;
   outline: 0;
   color: black;
+  cursor: pointer;
 `;
 const ListMap = () => {
   return (
     <>
-      {data.members.map((member) => (
+      {data.map((member) => (
         <StyledButton key={member.id}>{member.name}</StyledButton>
       ))}
     </>
