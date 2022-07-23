@@ -1,13 +1,14 @@
 import React from "react";
-import ListMap from "./Pages/ListMap";
-import ListFetch from "./Pages/ListFetch";
-import ListAxios from "./Pages/ListAxios";
+import ListMap from "./pages/ListMap";
+import ListFetch from "./pages/ListFetch";
+import ListAxios from "./pages/ListAxios";
 const App = () => {
   return (
     <>
       {/* <ListMap /> */}
       {/* <ListFetch /> */}
       <ListAxios />
+      <button>멤버추가</button>
     </>
   );
 };
