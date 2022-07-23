@@ -17,34 +17,24 @@ const Card = () => {
     };
     fetchData();
   }, []);
-  //   console.log(members);
-  //   console.log(memId);
-  //   console.log("members");
-  //   console.log(members);
 
-  //   const a = useParams();
-  //   const memId = a.memId;
-  //   const detail = members.filter((member) => member.memId === { memId });
-  //   console.log("detail");
-  //   console.log(detail);
   let a = useParams();
   console.log(a);
   const name = a.name;
   const mem = members.filter((member) => member.name === name)[0];
-
+  let { memId } = useParams();
   return (
     <>
-      {/* <div>about {memId}</div>
-      <div>{name}</div>
-      <div>{detail.nickname}</div>
-      <div>{detail.description}</div> */}
-      <div>
-        key={mem.memId}
-        name={mem.name}
-        nickname={mem.nickname}
-        description={mem.description}
-        role={mem.role}
-      </div>
+      {/* <p>key={memId}</p>
+      <p>name={props.name}</p>
+      <p>nickname={props.nickname}</p>
+      <p>description={props.description}</p>
+      <p>role={props.role}</p> */}
+      <p>key={memId}</p>
+      {/* <p>name={mem.name}</p>
+      <p>nickname={mem.nickname}</p>
+      <p>description={mem.description}</p>
+      <p>role={mem.role}</p> */}
     </>
   );
 };

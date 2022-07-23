@@ -42,15 +42,7 @@ const ListAxios = () => {
     <>
       {members.map((member) => (
         <Link to={`/${member.memId}`}>
-          <StyledButton
-            key={member.memId}
-            name={member.name}
-            nickname={member.nickname}
-            description={member.description}
-            role={member.role}
-          >
-            {member.name}
-          </StyledButton>
+          <StyledButton>{member.name}</StyledButton>
         </Link>
       ))}
       <Outlet />
