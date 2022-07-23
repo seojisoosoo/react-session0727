@@ -10,7 +10,7 @@ const Card = () => {
     const fetchData = async () => {
       //   setLoading(true);
       const response = await axios.get(
-        `https://16b9534b-1b6f-4e0a-bd63-b966d5d571f7.mock.pstmn.io/list`
+        "https://16b9534b-1b6f-4e0a-bd63-b966d5d571f7.mock.pstmn.io/list"
       );
       setMembers(response.data);
       //   setLoading(false);
