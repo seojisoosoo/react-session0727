@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import { Link, Outlet } from "react-router-dom";
+import { useNavigate, Outlet } from "react-router-dom";
 
 const StyledButton = styled.button`
   background-color: skyblue;
@@ -17,6 +17,7 @@ const StyledButton = styled.button`
 const Lists = () => {
   const [members, setMembers] = useState([]);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,7 +30,6 @@ const Lists = () => {
     };
     fetchData();
   }, []);
-  console.log(members);
 
   if (loading) {
     return <h1>대기중</h1>;
@@ -37,20 +37,22 @@ const Lists = () => {
   if (!members) {
     return null;
   }
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+
+  const handleClick = (url, id) => {
+    navigate(url, { state: members[id - 1] });
+  };
 
   return (
     <>
       {members.map((member) => (
-        <Link
-          to={`/${member.memId}`}
-          name={member.name}
-          nickname={member.nickname}
-          description={member.description}
-          role={member.role}
+        <StyledButton
+          onClick={() => handleClick(`/${member.memId}`, member.memId)}
         >
-          <StyledButton>{member.name}</StyledButton>
-        </Link>
+          {member.name}
+        </StyledButton>
       ))}
+
       <Outlet />
     </>
   );

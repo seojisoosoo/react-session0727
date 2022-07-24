@@ -20,7 +20,7 @@ const App = () => {
         </Routes>
       </Router>
       <br />
-      <Newmember />
+      {/* <Newmember /> */}
     </>
   );
 };

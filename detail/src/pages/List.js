@@ -1,42 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-// import axios from "axios";
+import React from "react";
+import { useLocation } from "react-router-dom";
 
-const List = (props) => {
-  //   const [members, setMembers] = useState([]);
-  //   const [loading, setLoading] = useState(false);
+const List = () => {
+  const { state } = useLocation();
 
-  //   useEffect(() => {
-  //     const fetchData = async () => {
-  //       setLoading(true);
-  //       const response = await axios.get(
-  //         "https://16b9534b-1b6f-4e0a-bd63-b966d5d571f7.mock.pstmn.io/list"
-  //       );
-  //       setMembers(response.data);
-  //       setLoading(false);
-  //     };
-  //     fetchData();
-  //   }, []);
-
-  //   let a = useParams();
-  //   console.log(a);
-  //   const name = a.name;
-  //   const mem = members.filter((member) => member.name === name)[0];
-  //   let { memId } = useParams();
-  console.log("닉네임");
-  console.log(props.nickname);
   return (
     <>
-      {/* <p>key={memId}</p> */}
-      <p>name={props.name}</p>
-      <p>nickname={props.nickname}</p>
-      <p>description={props.description}</p>
-      <p>role={props.role}</p>
-      {/* <p>key={memId}</p> */}
-      {/* <p>name={mem.name}</p>
-      <p>nickname={mem.nickname}</p>
-      <p>description={mem.description}</p>
-      <p>role={mem.role}</p> */}
+      <p>key={state.memId}</p>
+      <p>name={state.name}</p>
+      <p>nickname={state.nickname}</p>
+      <p>description={state.description}</p>
+      <p>role={state.role}</p>
     </>
   );
 };
