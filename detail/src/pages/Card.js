@@ -4,25 +4,27 @@ import axios from "axios";
 
 const Card = () => {
   const [members, setMembers] = useState([]);
-  //   const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
-      //   setLoading(true);
+      // setLoading(true);
       const response = await axios.get(
         "https://16b9534b-1b6f-4e0a-bd63-b966d5d571f7.mock.pstmn.io/list"
       );
       setMembers(response.data);
-      //   setLoading(false);
+      // setLoading(false);
     };
     fetchData();
   }, []);
 
   let a = useParams();
   console.log(a);
-  const name = a.name;
-  const mem = members.filter((member) => member.name === name)[0];
-  let { memId } = useParams();
+  const memId = a.memId;
+  const mem = members.filter((member) => member.memId === memId)[0];
+  console.log("memId");
+  console.log(mem);
+  // let { memId } = useParams();
   return (
     <>
       {/* <p>key={memId}</p>
@@ -31,10 +33,10 @@ const Card = () => {
       <p>description={props.description}</p>
       <p>role={props.role}</p> */}
       <p>key={memId}</p>
-      {/* <p>name={mem.name}</p>
+      <p>name={mem.name}</p>
       <p>nickname={mem.nickname}</p>
       <p>description={mem.description}</p>
-      <p>role={mem.role}</p> */}
+      <p>role={mem.role}</p>
     </>
   );
 };

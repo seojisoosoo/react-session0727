@@ -14,7 +14,7 @@ const StyledButton = styled.button`
   cursor: pointer;
 `;
 
-const Cards = () => {
+const Lists = () => {
   const [members, setMembers] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -41,7 +41,13 @@ const Cards = () => {
   return (
     <>
       {members.map((member) => (
-        <Link to={`/${member.memId}`}>
+        <Link
+          to={`/${member.memId}`}
+          name={member.name}
+          nickname={member.nickname}
+          description={member.description}
+          role={member.role}
+        >
           <StyledButton>{member.name}</StyledButton>
         </Link>
       ))}
@@ -50,4 +56,4 @@ const Cards = () => {
   );
 };
 
-export default Cards;
+export default Lists;
